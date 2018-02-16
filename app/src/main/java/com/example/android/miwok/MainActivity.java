@@ -15,13 +15,20 @@
  */
 package com.example.android.miwok;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.TextView;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
 
+    //VIEWS
+    @BindView(R.id.numbers)
+    TextView numbers;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,5 +36,14 @@ public class MainActivity extends AppCompatActivity {
         // Set the content of the activity to use the activity_main.xml layout file
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+    }
+
+    /**
+     * onClick to navigate to Numbers Activity
+     * @param view view
+     */
+    public void openNumbersList(View view) {
+        Intent intent = new Intent(this, NumbersActivity.class);
+        startActivity(intent);
     }
 }
